@@ -20,9 +20,10 @@ jobs:
     runs-on: [self-hosted, "${{ matrix.arch }}"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          submodules: recursive
 
       - uses: tibdex/github-app-token@v1
         id: generate-token
