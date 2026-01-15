@@ -16,52 +16,9 @@
 
 package version
 
-import (
-	"fmt"
-)
-
 const (
-	Major = 1        // Major version component of the current release
-	Minor = 8        // Minor version component of the current release
-	Patch = 3        // Patch version component of the current release
-	Meta  = "stable" // Version metadata to append to the version string
+	Major = 1  // Major version component of the current release
+	Minor = 8  // Minor version component of the current release
+	Patch = 3  // Patch version component of the current release
+	Meta  = "" // Version metadata to append to the version string
 )
-
-// Version holds the textual version string.
-var Version = func() string {
-	return fmt.Sprintf("%d.%d.%d", Major, Minor, Patch)
-}()
-
-// VersionWithMeta holds the textual version string including the metadata.
-var VersionWithMeta = func() string {
-	v := Version
-	if Meta != "" {
-		v += "-" + Meta
-	}
-	return v
-}()
-
-// ArchiveVersion holds the textual version string used for Geth archives. e.g.
-// "1.8.11-dea1ce05" for stable releases, or "1.8.13-unstable-21c059b6" for unstable
-// releases.
-func ArchiveVersion(gitCommit string) string {
-	vsn := Version
-	if Meta != "stable" {
-		vsn += "-" + Meta
-	}
-	if len(gitCommit) >= 8 {
-		vsn += "-" + gitCommit[:8]
-	}
-	return vsn
-}
-
-func VersionWithCommit(gitCommit, gitDate string) string {
-	vsn := VersionWithMeta
-	if len(gitCommit) >= 8 {
-		vsn += "-" + gitCommit[:8]
-	}
-	if (Meta != "stable") && (gitDate != "") {
-		vsn += "-" + gitDate
-	}
-	return vsn
-}
