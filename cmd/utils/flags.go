@@ -197,6 +197,7 @@ var (
 	EnableBALFlag = &cli.BoolFlag{
 		Name:     "enablebal",
 		Usage:    "Enable block access list feature, validator will generate BAL for each block",
+		Value:    bscFeaturesDefaultBool,
 		Category: flags.EthCategory,
 	}
 	// Dev mode
