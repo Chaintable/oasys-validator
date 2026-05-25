@@ -1149,6 +1149,7 @@ Please note that --` + MetricsHTTPFlag.Name + ` must be set to start the server.
 	VMOpcodeOptimizeFlag = &cli.BoolFlag{
 		Name:     "vm.opcode.optimize",
 		Usage:    "enable opcode optimization",
+		Value:    bscFeaturesDefaultBool,
 		Category: flags.VMCategory,
 	}
 
