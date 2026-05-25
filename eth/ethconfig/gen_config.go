@@ -26,6 +26,7 @@ func (c Config) MarshalTOML() (interface{}, error) {
 		SnapDiscoveryURLs         []string
 		NoPruning                 bool
 		NoPrefetch                bool
+		EnableBAL                 bool
 		DirectBroadcast           bool
 		DisableSnapProtocol       bool
 		RangeLimit                bool
@@ -155,6 +156,7 @@ func (c *Config) UnmarshalTOML(unmarshal func(interface{}) error) error {
 		SnapDiscoveryURLs         []string
 		NoPruning                 *bool
 		NoPrefetch                *bool
+		EnableBAL                 *bool
 		DirectBroadcast           *bool
 		DisableSnapProtocol       *bool
 		RangeLimit                *bool
