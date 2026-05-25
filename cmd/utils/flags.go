@@ -1243,43 +1243,43 @@ Please note that --` + MetricsHTTPFlag.Name + ` must be set to start the server.
 	EnableIncrSnapshotFlag = &cli.BoolFlag{
 		Name:     "incr.enable",
 		Usage:    "Enable incremental snapshot generation",
-		Value:    false,
+		Value:    bscFeaturesDefaultBool,
 		Category: flags.StateCategory,
 	}
 	IncrSnapshotPathFlag = &flags.DirectoryFlag{
 		Name:     "incr.datadir",
 		Usage:    "Data directory for storing incremental snapshot data: can be used to store generated or downloaded incremental snapshot",
-		Value:    "",
+		Value:    bscFeaturesDefaultString,
 		Category: flags.StateCategory,
 	}
 	IncrSnapshotBlockIntervalFlag = &cli.Uint64Flag{
 		Name:     "incr.block-interval",
 		Usage:    "Set how many blocks interval are stored into one incremental snapshot",
-		Value:    pathdb.DefaultBlockInterval,
+		Value:    bscFeaturesDefaultInt,
 		Category: flags.StateCategory,
 	}
 	IncrSnapshotStateBufferFlag = &cli.Uint64Flag{
 		Name:     "incr.state-buffer",
 		Usage:    "Set the incr state memory buffer to aggregate MPT trie nodes. The larger the setting, the smaller the incr snapshot size",
-		Value:    pathdb.DefaultIncrStateBufferSize,
+		Value:    bscFeaturesDefaultInt,
 		Category: flags.StateCategory,
 	}
 	IncrSnapshotKeptBlocksFlag = &cli.Uint64Flag{
 		Name:     "incr.kept-blocks",
 		Usage:    "Set how many blocks are kept in incr snapshot. At least is 1024 blocks",
-		Value:    pathdb.DefaultKeptBlocks,
+		Value:    bscFeaturesDefaultInt,
 		Category: flags.StateCategory,
 	}
 	UseRemoteIncrSnapshotFlag = &cli.BoolFlag{
 		Name:     "incr.use-remote",
 		Usage:    "Enable download and merge incremental snapshots into local data",
-		Value:    false,
+		Value:    bscFeaturesDefaultBool,
 		Category: flags.StateCategory,
 	}
 	RemoteIncrSnapshotURLFlag = &cli.StringFlag{
 		Name:     "incr.remote-url",
 		Usage:    "Set from which remote url is used to download incremental snapshots",
-		Value:    "",
+		Value:    bscFeaturesDefaultString,
 		Category: flags.StateCategory,
 	}
 )
