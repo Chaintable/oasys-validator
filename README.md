@@ -1,11 +1,11 @@
 # Chaintable write node
 
-> A DeBank / Chaintable **write node (producer)** for [leafage-evm](https://github.com/Chaintable/leafage-evm).
-> Fork of [oasysgames/oasys-validator](https://github.com/oasysgames/oasys-validator) (a go-ethereum fork), with DeBank pipeline patches.
+> A Chaintable **write node (producer)** for [leafage-evm](https://github.com/Chaintable/leafage-evm).
+> Fork of [oasysgames/oasys-validator](https://github.com/oasysgames/oasys-validator) (a go-ethereum fork), with Chaintable pipeline patches.
 
 ## Architecture
 
-This repo runs the **Oasys** execution layer and, with DeBank's pipeline patches, produces block data + state diffs to **Kafka + S3**. The consumer [leafage-evm](https://github.com/Chaintable/leafage-evm) ingests that stream to serve lightweight EVM **state queries** (`eth_call`, `eth_estimateGas`, …) — without P2P sync or transaction storage. See the [leafage-evm architecture](https://github.com/Chaintable/leafage-evm#architecture) for the full picture.
+This repo runs the **Oasys** execution layer and, with Chaintable's pipeline patches, produces block data + state diffs to **Kafka + S3**. The consumer [leafage-evm](https://github.com/Chaintable/leafage-evm) ingests that stream to serve lightweight EVM **state queries** (`eth_call`, `eth_estimateGas`, …) — without P2P sync or transaction storage. See the [leafage-evm architecture](https://github.com/Chaintable/leafage-evm#architecture) for the full picture.
 
 ```
 Oasys write node (this repo · producer)
