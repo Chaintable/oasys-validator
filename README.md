@@ -24,9 +24,9 @@ Chaintable write node (this repo · producer, embeds pipeline tracer)
 Validator client for Oasys. Forked from go ethereum.
 
 [![API Reference](
-https://pkg.go.dev/badge/github.com/Chaintable/oasys-validator
-)](https://pkg.go.dev/github.com/Chaintable/oasys-validator?tab=doc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/Chaintable/oasys-validator)](https://goreportcard.com/report/github.com/Chaintable/oasys-validator)
+https://pkg.go.dev/badge/github.com/ethereum/go-ethereum
+)](https://pkg.go.dev/github.com/ethereum/go-ethereum?tab=doc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ethereum/go-ethereum)](https://goreportcard.com/report/github.com/ethereum/go-ethereum)
 [![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/oasysgames)
 [![Twitter](https://img.shields.io/twitter/follow/oasyschain)](https://x.com/oasyschain)
 
