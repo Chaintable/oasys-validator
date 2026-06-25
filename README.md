@@ -23,10 +23,15 @@ Chaintable write node (this repo · producer, embeds pipeline tracer)
 # Oasys Validator
 Validator client for Oasys. Forked from go ethereum.
 
+[![API Reference](
+https://pkg.go.dev/badge/github.com/Chaintable/oasys-validator
+)](https://pkg.go.dev/github.com/Chaintable/oasys-validator?tab=doc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Chaintable/oasys-validator)](https://goreportcard.com/report/github.com/Chaintable/oasys-validator)
 [![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/oasysgames)
 [![Twitter](https://img.shields.io/twitter/follow/oasyschain)](https://x.com/oasyschain)
 
-Container images are published by CI to public ECR `public.ecr.aws/b2h7a5c4/chaintable/oasys-writer`; source releases are tagged in [this repository](https://github.com/Chaintable/oasys-validator/releases).
+Automated builds are available for stable releases and the unstable master branch. Binary
+archives are published at https://github.com/Chaintable/oasys-validator/releases.
 ## Running `geth` on Oasys
 
 Read following manual on [**Oasys docs**](https://docs.oasys.games/docs/hub-validator/operate-validator/build-validator-node).
