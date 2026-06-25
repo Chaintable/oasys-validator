@@ -1,4 +1,4 @@
-# Oasys Write Node — Chaintable/oasys-validator
+# Chaintable write node
 
 > A DeBank / Chaintable **write node (producer)** for [leafage-evm](https://github.com/Chaintable/leafage-evm).
 > Fork of [oasysgames/oasys-validator](https://github.com/oasysgames/oasys-validator) (a go-ethereum fork), with DeBank pipeline patches.
