@@ -17,13 +17,6 @@ Oasys write node (this repo · producer)
   leafage-evm (consumer · EVM state queries)
 ```
 
-## As a producer (operator quickstart)
-
-1. **Image** — CI publishes multi-arch images to public ECR:
-   `public.ecr.aws/b2h7a5c4/chaintable/oasys-writer`
-2. **Build locally** — `make geth`, or `docker build -f Dockerfile.debank .`
-3. **Run** — start the node with the DeBank pipeline (Kafka + S3) config so it feeds state updates to leafage-evm.
-
 ---
 
 ![logo1](https://user-images.githubusercontent.com/107421475/227834490-3a3a9834-21a8-4079-8166-f6fe571d6b8d.png)
