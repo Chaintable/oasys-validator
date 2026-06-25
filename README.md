@@ -1,16 +1,39 @@
+# Oasys Write Node — Chaintable/oasys-validator
+
+> A DeBank / Chaintable **write node (producer)** for [leafage-evm](https://github.com/Chaintable/leafage-evm).
+> Fork of [oasysgames/oasys-validator](https://github.com/oasysgames/oasys-validator) (a go-ethereum fork), with DeBank pipeline patches.
+
+## Architecture
+
+This repo runs the **Oasys** execution layer and, with DeBank's pipeline patches, produces block data + state diffs to **Kafka + S3**. The consumer [leafage-evm](https://github.com/Chaintable/leafage-evm) ingests that stream to serve lightweight EVM **state queries** (`eth_call`, `eth_estimateGas`, …) — without P2P sync or transaction storage. See the [leafage-evm architecture](https://github.com/Chaintable/leafage-evm#architecture) for the full picture.
+
+```
+Oasys write node (this repo · producer)
+        │  block + state diff
+        ▼
+     Kafka + S3
+        │
+        ▼
+  leafage-evm (consumer · EVM state queries)
+```
+
+## As a producer (operator quickstart)
+
+1. **Image** — CI publishes multi-arch images to public ECR:
+   `public.ecr.aws/b2h7a5c4/chaintable/oasys-writer`
+2. **Build locally** — `make geth`, or `docker build -f Dockerfile.debank .`
+3. **Run** — start the node with the DeBank pipeline (Kafka + S3) config so it feeds state updates to leafage-evm.
+
+---
+
 ![logo1](https://user-images.githubusercontent.com/107421475/227834490-3a3a9834-21a8-4079-8166-f6fe571d6b8d.png)
 # Oasys Validator
 Validator client for Oasys. Forked from go ethereum.
 
-[![API Reference](
-https://pkg.go.dev/badge/github.com/ethereum/go-ethereum
-)](https://pkg.go.dev/github.com/ethereum/go-ethereum?tab=doc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/ethereum/go-ethereum)](https://goreportcard.com/report/github.com/ethereum/go-ethereum)
 [![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/oasysgames)
 [![Twitter](https://img.shields.io/twitter/follow/oasyschain)](https://x.com/oasyschain)
 
-Automated builds are available for stable releases and the unstable master branch. Binary
-archives are published at https://github.com/oasysgames/oasys-validator/releases.
+Container images are published by CI to public ECR `public.ecr.aws/b2h7a5c4/chaintable/oasys-writer`; source releases are tagged in [this repository](https://github.com/Chaintable/oasys-validator/releases).
 ## Running `geth` on Oasys
 
 Read following manual on [**Oasys docs**](https://docs.oasys.games/docs/hub-validator/operate-validator/build-validator-node).
