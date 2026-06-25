@@ -1,6 +1,5 @@
 # Chaintable write node
 
-> A Chaintable **write node (producer)** for [leafage-evm](https://github.com/Chaintable/leafage-evm).
 > Fork of [oasysgames/oasys-validator](https://github.com/oasysgames/oasys-validator) (a go-ethereum fork), with Chaintable pipeline patches.
 
 ## Architecture
