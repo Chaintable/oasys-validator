@@ -5,6 +5,10 @@ on:
     tags:
       - "plugin-v*"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-sign:
     name: Build and sign (${{ matrix.arch }})
@@ -14,9 +18,9 @@ jobs:
       matrix:
         include:
           - arch: amd64
-            runner: ubuntu-latest
+            runner: ubuntu2404-linux-x86-64-16c
           - arch: arm64
-            runner: ubuntu-24.04-arm
+            runner: ubuntu2204-arm64-16c
     permissions:
       id-token: write
       contents: read
@@ -97,7 +101,7 @@ jobs:
   release:
     name: Release
     needs: build-and-sign
-    runs-on: ubuntu-latest
+    runs-on: ubuntu2404-linux-x86-64-16c
     permissions:
       contents: write
     steps:
