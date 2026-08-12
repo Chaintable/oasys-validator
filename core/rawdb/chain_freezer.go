@@ -68,7 +68,7 @@ type chainFreezer struct {
 	wg      sync.WaitGroup
 	trigger chan chan struct{} // Manual blocking freeze trigger, test determinism
 
-	threshold atomic.Uint64 // Number of recent blocks not to freeze (params.FullImmutabilityThreshold apart from tests)
+	threshold atomic.Uint64 // Number of recent blocks not to freeze
 
 	freezeEnv    atomic.Value
 	blockHistory atomic.Uint64
@@ -605,6 +605,11 @@ func (f *chainFreezer) freezeRange(nfdb *nofreezedb, number, limit uint64) (hash
 func (f *chainFreezer) SetupFreezerEnv(env *ethdb.FreezerEnv, blockHistory uint64) error {
 	f.freezeEnv.Store(env)
 	f.blockHistory.Store(blockHistory)
+	if blockHistory != 0 && blockHistory < params.FullImmutabilityThreshold {
+		f.threshold.Store(blockHistory)
+	} else {
+		f.threshold.Store(params.FullImmutabilityThreshold)
+	}
 	return nil
 }
 
