@@ -2022,10 +2022,6 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *ethconfig.Config) {
 	}
 	if ctx.IsSet(BlockHistoryFlag.Name) {
 		cfg.BlockHistory = ctx.Uint64(BlockHistoryFlag.Name)
-		if cfg.BlockHistory != 0 && cfg.BlockHistory < params.FullImmutabilityThreshold {
-			log.Warn("The number of block history is too small, that it will force to", "fullImmutabilityThreshold", params.FullImmutabilityThreshold)
-			cfg.BlockHistory = params.FullImmutabilityThreshold
-		}
 	}
 	if ctx.IsSet(PathDBSyncFlag.Name) {
 		cfg.PathSyncFlush = true
